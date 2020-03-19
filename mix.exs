@@ -2,15 +2,17 @@ defmodule Ecto.Atom.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :ecto_atom,
-     version: "1.0.0",
-     elixir: "~> 1.4",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     description: description(),
-     package: package(),
-     deps: deps(),
-     source_url: "https://github.com/matthieupinte/ecto_atom"]
+    [
+      app: :ecto_atom,
+      version: "1.0.0",
+      elixir: "~> 1.10",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      description: description(),
+      package: package(),
+      deps: deps(),
+      source_url: "https://github.com/matthieupinte/ecto_atom"
+    ]
   end
 
   # Configuration for the OTP application
@@ -28,8 +30,7 @@ defmodule Ecto.Atom.Mixfile do
   end
 
   defp deps do
-    [{:ecto, "~> 2.1"},
-     {:ex_doc, "~> 0.14", only: :dev, runtime: false}]
+    [{:ecto, "~> 3.3"}, {:ex_doc, "~> 0.14", only: :dev, runtime: false}]
   end
 
   defp package do
